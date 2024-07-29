@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void count_sort(vector<char>& nums,int n){
+    int Range=128;
+    vector<int> count (128,0);
+    for(auto c:nums){
+        count[c]++;
+    }
+    int maxoccr=0;
+    char maxch=nums[0];
+    for(char c:nums){
+        if(count[c]>maxoccr)
+        {
+            maxoccr=count[c];
+            maxch=c;
+        }
+   }
+    cout<<maxch<<" - "<<maxoccr;
+ }
+int main(){
+    int n;
+    cin>>n;
+    vector<char> nums(n-1);
+    for (int i = 0; i < n; i++){
+        cin>>nums[i];
+    }
+    count_sort(nums,n);
+}
